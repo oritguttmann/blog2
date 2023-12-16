@@ -141,6 +141,8 @@ def get_all_posts():
     global logged_in
     result = db.session.execute(db.select(BlogPost))
     posts = result.scalars().all()
+    print(logged_in)
+    print(current_user.id)
     if logged_in:
         curr_id = current_user.id
     else:
