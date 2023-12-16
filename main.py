@@ -56,8 +56,8 @@ class User(db.Model, UserMixin):
     blog_posts: Mapped[List["BlogPost"]] = relationship(back_populates="user")
 
 
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 
 login_manager = LoginManager()
 login_manager.init_app(app)
