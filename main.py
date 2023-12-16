@@ -141,8 +141,9 @@ def get_all_posts():
     global logged_in
     result = db.session.execute(db.select(BlogPost))
     posts = result.scalars().all()
-    print(f"logged_in: {logged_in}")
-    print(f"current_user.id: {current_user.id}")
+    first_user = db.session.execute(db.select(User).where(User.id == 1)).scalar()
+    print(f"user name : {first_user.name}")
+    print(f"user name : {first_user.email}")
     if logged_in:
         curr_id = current_user.id
     else:
